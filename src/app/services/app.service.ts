@@ -8,10 +8,11 @@ import { Subject } from 'rxjs/Subject';
 // interfaces
 import { DateTime } from './../interfaces/datetime.interface';
 import { TimeSlot } from '../interfaces/time-slot.interface';
+import { PostResponse } from '../interfaces/api.interface';
 
 @Injectable()
 export class AppService {
-  booking$: Subject<any> = new Subject<any>();
+  booking$: Subject<TimeSlot> = new Subject<TimeSlot>();
 
   constructor(private http: HttpClient ) { }
 
@@ -21,23 +22,22 @@ export class AppService {
    * @param visitDuration string
    * @param weekBeginning string
    */
-  getAvailability(postcode: string, visitDuration: string, weekBeginning: string): Observable<DateTime> {
+  getAvailability(postcode: string, visitDuration: string, weekBeginning: string): Observable<DateTime[]> {
 
     const formattedDate = weekBeginning.replace('/', '-');
-    const url = `https://private-anon-05eca8d618-housekeepavailability.apiary-mock.com/availability/?
-      weekBeginning=${formattedDate}&
-      visitDuration=${visitDuration}&
-      postcode=${postcode}`;
+    const url = 'https://private-anon-05eca8d618-housekeepavailability.apiary-mock.com/availability/?weekBeginning='
+      + formattedDate + '&visitDuration='
+      + visitDuration + '&postcode='
+      + postcode;
 
-    return this.http.get<DateTime>(url);
-
+    return this.http.get<DateTime[]>(url);
   }
   /**
    * POST booking information to booking end point
    * @param postData <TimeSlot>
    * @param visitDuration string
    */
-  postBooking(postData: TimeSlot, visitDuration: string): Observable<Object> {
+  postBooking(postData: TimeSlot, visitDuration: string): Observable<PostResponse> {
     const body = {
       'day': postData.day,
       'startTime': {
@@ -48,6 +48,6 @@ export class AppService {
       'propertyId': 'ealdk1f9' // where should i get this from?
   };
     const url = `https://private-anon-05eca8d618-housekeepavailability.apiary-mock.com/book/`;
-    return this.http.post(url, body);
+    return this.http.post<PostResponse>(url, body);
   }
 }
