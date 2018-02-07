@@ -26,7 +26,6 @@ export class HkTimeSlotComponent {
    * toggle background colour of the selected time slot
    */
   toggleSeletion (e: HTMLLIElement): void {
-    console.log('e', e);
     if ((e['target'].type) !== 'button') {
       if (this.possible) {
         this.selected = !this.selected;

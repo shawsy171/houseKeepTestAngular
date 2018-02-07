@@ -2,7 +2,7 @@
   [class.selected]="selected"
   [class.disabled]="!possible"
   class="list-item" 
-  (click)="toggleSeletion()"
+  (click)="toggleSeletion($event)"
 >
   <div class="list-item--text">
     {{ start }}
