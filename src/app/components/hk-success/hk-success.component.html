@@ -1,0 +1,13 @@
+<div 
+*ngIf="success"
+  class="callout success">
+  <h5>Congratulations your booking has been successful!</h5>
+  <p>Your cleaners name is {{cleaner}}</p>
+  <p>Cleaning time: {{end}} - {{start}}</p>
+</div>
+
+<div
+  *ngIf="!success"
+  class="callout alert">
+  <h5>Sorry your booking has been unsuccessful!</h5>
+</div>

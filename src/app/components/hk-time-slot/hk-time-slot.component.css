@@ -1,0 +1,22 @@
+.list-item {
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #bbb;
+  border-bottom: none;
+}
+
+.list-item:last-child {
+  /* border-bottom: 1px solid #bbb; */
+}
+.list-item--text {
+  margin: 5px 10px;
+}
+
+.selected {
+  background-color: #e1faea;
+}
+
+.disabled {
+  background-color: lightgrey;
+  color: darkgrey;
+}

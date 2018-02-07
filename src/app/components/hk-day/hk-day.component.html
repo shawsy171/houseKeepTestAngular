@@ -1,0 +1,22 @@
+<div class="hk-day card">
+  <div class="card-section">
+    <p class="hk-day__date" 
+      (click)="toggleListView()">
+      {{ formattedDate }}
+    </p>
+    <ul class="hk-day__list" *ngIf="showlist" >
+      <app-hk-time-slot *ngFor="let time of times"
+        [day]="date"
+        [start]="time.start"
+        [end]="time.end"
+        [possible]="time.possible"
+      ></app-hk-time-slot>
+    </ul>
+  </div>
+</div>
+
+<!-- <div class="card">
+  <div class="card-section">
+    <p>This is a simple card with an image inside a `.card-section`.</p>
+  </div>
+</div> -->

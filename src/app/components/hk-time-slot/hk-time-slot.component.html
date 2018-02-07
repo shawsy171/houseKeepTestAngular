@@ -1,0 +1,27 @@
+<li
+  [class.selected]="selected"
+  [class.disabled]="!possible"
+  class="list-item" 
+  (click)="toggleSeletion()"
+>
+  <div class="list-item--text">
+    {{ start }}
+  </div>
+  <div class="list-item--text">
+    {{ end }}
+  </div>
+  <div *ngIf="possible" class="list-item--text">
+    available
+  </div>
+  <div *ngIf="!possible" class="list-item--text">
+    unavailable
+  </div>
+  <button *ngIf="possible && selected"
+    (click)="bookBtnClick($event)"
+    type="button" 
+    class="success button"
+  >
+    Book
+  </button>
+
+</li>

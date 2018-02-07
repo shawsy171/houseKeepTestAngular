@@ -1,0 +1,126 @@
+<form [formGroup]="form">
+  
+    <div class="grid-x grid-padding-x">
+        <!-- [class.hk-form__errors]="formErrors" -->
+      <!-- WEEK BEGINNIG -->
+      <div class="medium-3 cell">
+        <label>Week Beginning:
+          <input
+            formControlName="weekBeginning"
+            type="date"
+            placeholder="YYYY-MM-DD"
+            [ngClass]="{'hk-form__errors': formErrors}"
+          />
+        </label>
+        <div ngxErrors="weekBeginning" >
+            <div 
+              ngxError="required" 
+              when="touched" 
+              class="hk-form__errors"
+            >
+              this field is required
+            </div>
+            <div 
+              ngxError="dateInvaild" 
+              when="touched" 
+              class="hk-form__errors"
+            >
+                must be a valid date
+            </div>
+        </div>
+      </div>
+      <!-- / WEEK BEGINNIG -->  
+
+      <!-- VISIT DURATION -->
+      <div class="medium-3 cell">
+          <label>Vist Duration:
+            <input
+              formControlName="visitDuration"
+              type="number"
+              step="0.5"
+              min="0"
+              placeholder="2.5"
+              [ngClass]="{'hk-form__errors': formErrors}"
+            >
+          </label>
+          <div ngxErrors="visitDuration">
+              <div 
+                ngxError="required" 
+                when="touched"
+                class="hk-form__errors"
+              >
+                This field is required
+              </div>
+              <div 
+                ngxError="maxlength"
+                when="touched" 
+                class="hk-form__errors"
+              >
+                  Must be a valid Vist Duration
+              </div>
+              <div 
+                ngxError="min"
+                when="touched" 
+                class="hk-form__errors"
+              >
+                  Must be a valid Vist Duration
+              </div>
+          </div>
+        </div>
+        <!-- / VISIT DURATION -->
+
+      <!-- POSTCODE -->
+      <div class="medium-3 cell">
+        <label>Postcode:
+          <input
+            formControlName="postcode"
+            type="text"
+            placeholder="e.g. SE19 3RT"
+            [ngClass]="{'hk-form__errors': formErrors}"
+          >
+        </label>
+        <div ngxErrors="postcode">
+            <div 
+              ngxError="required" 
+              when="touched"
+              class="hk-form__errors"
+            >
+              This field is required
+            </div>
+            <div 
+              ngxError="invaildPostcode"
+              when="touched" 
+              class="hk-form__errors"
+            >
+                Must be a valid PostCode
+            </div>
+        </div>
+      </div>
+      <!-- / POSTCODE -->
+
+      <!-- SUBMIT BUTTON -->
+      <div class="medium-3 cell">
+        <button
+          class="button primary hk-form__submit-btn"
+          (click)="onSubmit()"
+        >
+          Check Available Cleaners
+        </button>
+      </div>
+      <!-- / SUBMIT BUTTON -->
+
+    </div> 
+    <!-- / grid-x grid-padding-x" -->
+</form>
+
+<div class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <!-- FORM ERRORS -->
+    <div *ngIf="formErrors" class="medium-3 cell">
+      Please complete all inputs
+    </div>
+    <!-- / FORM ERRORS -->
+  </div> 
+  <!-- / grid-x grid-padding-x" -->
+</div>
+<!-- / grid-container -->

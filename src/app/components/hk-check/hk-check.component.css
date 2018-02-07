@@ -1,0 +1,7 @@
+.hk-form__submit-btn {
+  margin-top: 24px;
+}
+
+.hk-form__errors {
+  border: 1px red solid;
+}
