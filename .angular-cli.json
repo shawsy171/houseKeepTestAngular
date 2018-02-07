@@ -20,11 +20,9 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "foundation-6.4.2-complete/css/foundation.css"
+        "./css/foundation.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "foundation-6.4.2-complete/js/vendor/foundation.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -58,7 +56,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

@@ -16,7 +16,7 @@ import { PostResponse } from './interfaces/api.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  availabilityList: Observable<DateTime>;
+  availabilityList: Observable<DateTime[]>;
   weekCommencing: string;
   visitDuration: string;
   bookingSuccess: any;
