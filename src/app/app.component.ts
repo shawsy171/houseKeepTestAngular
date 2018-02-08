@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
       this.appService.postBooking(data, this.visitDuration)
         .subscribe((res: PostResponse) => {
         this.bookingSuccess = { ...data, ...res, visitDuration: this.visitDuration };
-        console.log('this.bookingSuccess', this.bookingSuccess);
+
       });
     });
   }
